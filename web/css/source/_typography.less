@@ -1,0 +1,103 @@
+// /**
+//  * Copyright © Magento, Inc. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+    .lib-font-face (
+        @family-name: 'Avenir-black',
+        @font-path: '@{baseDir}fonts/Avenir-Black',
+        @font-weight: 800,
+        @font-style: normal,
+    );
+
+    .lib-font-face (
+        @family-name: 'Avenir-heavy',
+        @font-path: '@{baseDir}fonts/Avenir-Heavy',
+        @font-weight: 600,
+        @font-style: normal,
+    );
+
+    .lib-font-face (
+        @family-name: 'Avenir-roman',
+        @font-path: '@{baseDir}fonts/Avenir-Roman',
+        @font-style: normal,
+    );
+
+    .lib-font-face (
+        @family-name: 'AvernirBook',
+        @font-path: '@{baseDir}fonts/AvernirBook',
+        @font-weight: 400,
+        @font-style: normal,
+    );   
+    
+    .lib-font-face (
+        @family-name: 'Markerfield-regular',
+        @font-path: '@{baseDir}fonts/Markerfield-Regular',
+        @font-weight: 400,
+        @font-style: normal,
+    );
+
+    .lib-font-face (
+        @family-name: 'Markerfield-regular',
+        @font-path: '@{baseDir}fonts/Markerfield-Regular',
+        @font-weight: 400,
+        @font-style: normal,
+    );
+
+    .lib-font-face (
+        @family-name: 'Helvetica',
+        @font-path: '@{baseDir}fonts/helvetica-light',
+        @font-weight: 400,
+        @font-style: normal,
+    );
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    h1 {
+        .lib-css(margin-bottom, @h1__margin-bottom__desktop);
+    }
+}
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+    .items {
+        .lib-list-reset-styles();
+    }
+
+    h1, h2, h3 {
+        .lib-css(letter-spacing, -0.25px);
+    }
+
+    h5 {
+        .lib-css(text-transform, uppercase);
+        .lib-css(letter-spacing, 0.5px);
+    }
+
+    p {
+        font-weight: 400;
+        .lib-css(font-family, @font-avenir-roman);
+        .lib-css(font-size, 15px);
+        .lib-css(margin, 0 0 20px);
+    }
+
+    .breadcrumbs a {
+        color: @color-gray20;
+        text-decoration: none;
+    }
+
+    dl {
+        margin-bottom: 2px;
+    }
+}

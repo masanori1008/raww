@@ -1,0 +1,98 @@
+// /**
+//  * Copyright © Magento, Inc. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common =true) {
+
+    //  Using buttons mixins
+    button,
+    a.action.primary {
+        .lib-css(border-radius, @button__border-radius);
+
+        &:active,
+        &:focus {
+            .lib-css(box-shadow, inset 0 2px 1px rgba(0, 0, 0, .12));
+        }
+    }
+
+    button {
+        min-height: 50px;
+
+        &:not(.primary) {
+            .lib-css(box-shadow, none);
+
+            &:active {
+                .lib-css(box-shadow, none);
+            }
+        }
+    }
+
+    body {
+        &:not(._keyfocus) {
+            button {
+                &:focus {
+                    box-shadow: none;
+                }
+            }
+        }
+    }
+
+    a.action.primary {
+        padding: 6px 12px;
+        .lib-link-as-button();
+    }
+
+    .action.primary.tocart {
+        .lib-css(border-radius, @button__border-radius);
+    }
+
+    a {
+        .lib-css(cursor, pointer);
+
+        &.action.secondary {
+            .lib-button(@_button-color: @color-brown01,
+                @_button-background: @color-white,
+                @_button-border: 2px solid @color-pink01,
+                @_button-color-hover: @color-brown01,
+                @_button-background-hover: @color-pink01,
+                @_button-border-hover: 2px solid @color-pink01,
+                @_button-color-active: @color-brown01,
+                @_button-background-active: @color-pink01,
+                @_button-border-active: 2px solid @color-pink01,
+                @_button-font-size: 15px,
+                @_button-line-height: 20px);
+
+
+            .lib-css(text-decoration, none);
+        }
+
+        &.btn-banner {
+            .lib-button(@_button-color: @color-brown01,
+                @_button-background: @color-white,
+                @_button-border: none,
+
+                @_button-border-hover: none,
+                @_button-color-hover: @color-brown01,
+                @_button-background-hover: @color-white,
+
+                @_button-color-active: @color-brown01,
+                @_button-background-active: @color-white,
+                @_button-border-active: none,
+
+                @_button-font-size: 15px,
+                @_button-line-height: 20px,
+                @_button-padding: 15px 33px);
+            .lib-css(border-radius, 3px);
+            .lib-css(text-decoration, none);
+        }
+    }
+
+    .action.primary {
+        .lib-button-primary();
+    }
+}

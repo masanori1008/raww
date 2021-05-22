@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="3columns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+         <referenceBlock name="wish-list-link" remove="true" />  
+		 <referenceBlock name="register-link" remove="true" />
+		 <referenceBlock name="my-account-link" remove="true" />  
+		 <referenceBlock name="header" remove="true"/> 
+		 <referenceBlock name="advanced-search-link" remove="true"/>
+		 <referenceBlock name="footer_links" remove="true" />
+		 <referenceBlock name="copyright" remove="true"/>
+
+        <referenceBlock name="form.subscribe" remove="true"/>
+
+	     <referenceContainer name="header.panel">
+	        <block class="Magento\Cms\Block\Block" name="header.top.mobile" before="-">
+	            <arguments>
+	                <argument name="block_id" xsi:type="string">header_top_mobile</argument>
+	            </arguments>
+	        </block>
+
+	        <block class="Magento\Cms\Block\Block" name="header.free.shipping" before="-">
+	            <arguments>
+	                <argument name="block_id" xsi:type="string">header_free_shipping</argument>
+	            </arguments>
+	        </block>
+
+	        <block class="Magento\Cms\Block\Block" name="header.about" after="header.free.shipping">
+	            <arguments>
+	                <argument name="block_id" xsi:type="string">header_about</argument>
+	            </arguments>
+	        </block>
+	     </referenceContainer>
+
+ 	     <referenceContainer name="header-wrapper">
+	        <block class="Magento\Cms\Block\Block" name="header.right.icon" after="top.search">
+	            <arguments>
+	                <argument name="block_id" xsi:type="string">header_right_icon</argument>
+	            </arguments>
+	        </block>
+	     </referenceContainer>
+
+	     <referenceContainer name="page.top">
+	     	<block class="Magento\Cms\Block\Block" name="header.bottom" before="breadcrumbs">
+	            <arguments>
+	                <argument name="block_id" xsi:type="string">header_bottom</argument>
+	            </arguments>
+	        </block>
+	     </referenceContainer>
+
+ 	     <referenceContainer name="footer-container">
+	     	<block class="Magento\Cms\Block\Block" name="footer.top" before="-">
+	            <arguments>
+	                <argument name="block_id" xsi:type="string">footer_top</argument>
+	            </arguments>
+	        </block>
+
+	     	<block class="Magento\Cms\Block\Block" name="footer.center" after="footer.top">
+	            <arguments>
+	                <argument name="block_id" xsi:type="string">footer_center</argument>
+	            </arguments>
+	        </block>
+
+	     	<block class="Magento\Cms\Block\Block" name="footer.center.mobile" after="footer.center">
+	            <arguments>
+	                <argument name="block_id" xsi:type="string">footer_center_mobile</argument>
+	            </arguments>
+	        </block>
+
+	     	<block class="Magento\Cms\Block\Block" name="footer.bottom" after="-">
+	            <arguments>
+	                <argument name="block_id" xsi:type="string">footer_bottom</argument>
+	            </arguments>
+	        </block>
+	     </referenceContainer>
+
+    </body>
+</page>

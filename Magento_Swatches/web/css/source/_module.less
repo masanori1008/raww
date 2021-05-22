@@ -1,0 +1,385 @@
+// /**
+//  * Copyright © Magento, Inc. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  Variables
+//  _____________________________________________
+
+@swatch-attribute-option__selected__color: #646464;
+
+@swatch-option__background: @color-gray94;
+@swatch-option__border: 1px solid @color-pink01;
+
+@swatch-option__hover__border: @border-width__base solid @color-white;
+@swatch-option__hover__color: @color-gray20;
+@swatch-option__hover__outline: 1px solid @color-gray60;
+
+@swatch-more__hover__border: @border-width__base solid @color-white;
+@swatch-more__hover__color: @color-orange-red1;
+@swatch-more__hover__outline: 1px solid @color-gray60;
+
+@swatch-option__selected__border: @swatch-option__hover__border;
+@swatch-option__selected__color: @swatch-option__hover__color;
+@swatch-option__selected__outline: 2px solid @active__color;
+
+@swatch-option__disabled__background: @color-red10;
+
+//  Text attributes
+@swatch-option-text__background: @swatch-option__background;
+@swatch-option-text__color: #686868;
+
+@swatch-option-text__selected__background-color: @color-white;
+
+//  Size and Manufacturer attributes
+@attr-swatch-option__background: @swatch-option__background;
+@attr-swatch-option__color: #949494;
+
+@attr-swatch-option__selected__background: @color-white;
+@attr-swatch-option__selected__border: @border-width__base solid @color-white;
+@attr-swatch-option__selected__color: @color-black;
+
+//  Image and Color swatch
+@img-color-swatch-option__hover__border: @swatch-option__hover__border;
+@img-color-swatch-option__hover__outline: 2px solid darken(@active__color, 12%);
+
+//  Tooltip
+@swatch-option-tooltip__background: @color-white;
+@swatch-option-tooltip__border: @swatch-option__border;
+@swatch-option-tooltip__color: #949494;
+
+@swatch-option-tooltip-title__color: #31251c;
+
+@swatch-option-tooltip-layered__background: @swatch-option-tooltip__background;
+@swatch-option-tooltip-layered__border: @swatch-option__border;
+@swatch-option-tooltip-layered__color: @swatch-option-tooltip__color;
+
+@swatch-option-tooltip-layered-title__color: @swatch-option-tooltip-title__color;
+
+//  Layered Features
+@swatch-option-link-layered__focus__box-shadow: 0 0 3px 1px @focus__color;
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common =true) {
+
+    .swatch {
+        &-attribute {
+            &-label {
+                font-weight: @font-weight__bold;
+                position: relative;
+
+                &.required {
+                    padding-right: @indent__s;
+                }
+
+                &[data-required='1']:after {
+                    .lib-css(color, @form-field-label-asterisk__color);
+                    content: '*';
+                    font-size: @font-size__base;
+                    font-weight: @font-weight__bold;
+                    position: absolute;
+                    right: -11px;
+                    top: -2px;
+                }
+            }
+
+            &-selected-option {
+                .lib-css(color, @swatch-attribute-option__selected__color);
+                padding-left: 17px;
+                display: none;
+            }
+            &.contain {
+                min-height: 80px;
+            }
+            &-options {
+                margin-top: 3px;
+                margin-bottom: 10px;
+                .lib-vendor-prefix-display();
+                .lib-css(justify-content, center, 1);
+                &:focus {
+                    box-shadow: none;
+                }
+
+                .swatch-option-tooltip-layered .title {
+                    .lib-css(color, @swatch-option-tooltip-layered-title__color);
+                    bottom: -5px;
+                    height: 20px;
+                    left: 0;
+                    margin-bottom: @indent__s;
+                    position: absolute;
+                    text-align: center;
+                    width: 100%;
+                }
+            }
+
+            &.size,
+            &.manufacturer {
+                .swatch-option {
+                    .lib-css(background, @attr-swatch-option__background);
+                    .lib-css(color, @attr-swatch-option__color);
+
+                    &.selected {
+                        .lib-css(background, @attr-swatch-option__selected__background);
+                        .lib-css(border, @attr-swatch-option__selected__border);
+                        .lib-css(color, @attr-swatch-option__selected__color);
+                    }
+                }
+            }
+        }
+
+        &-option {
+            .lib-css(border, @swatch-option__border);
+            cursor: pointer;
+            float: none;
+            height: 20px;
+            margin: 0 2px @indent__xs 0;
+            max-width: 100%;
+            min-width: 30px;
+            overflow: hidden;
+            padding: 1px 2px;
+            position: relative;
+            text-align: center;
+            text-overflow: ellipsis;
+
+            &:not(.color):focus {
+                box-shadow: @focus__box-shadow;
+            }
+
+            &.text {
+                .lib-css(background, @swatch-option-text__background);
+                .lib-css(color, @swatch-option-text__color);
+                font-size: @font-size__s;
+                font-weight: @font-weight__bold;
+                line-height: 20px;
+                margin-right: 7px;
+                min-width: 22px;
+                padding: 4px 8px;
+
+                &.selected {
+                    .lib-css(background-color, @swatch-option-text__selected__background-color) !important;
+                }
+            }
+
+            &:not(.color).selected {
+                .lib-css(outline, @swatch-option__selected__outline);
+                .lib-css(border, @swatch-option__selected__border);
+                .lib-css(color, @swatch-option__selected__color);
+            }
+
+            &:not(.disabled, .color):hover {
+                .lib-css(border, @swatch-option__hover__border);
+                .lib-css(color, @swatch-option__hover__color);
+                .lib-css(outline, @swatch-option__hover__outline);
+            }
+
+            &.image,
+            &.color {
+                width: 38px;
+                height: 38px;
+                border-radius: 50%;
+                border: 4px solid white;
+                padding: 0;
+                display: inline-block;
+
+                &.selected,
+                &:not(.disabled):hover {
+                    border: none;
+                    margin-bottom: 28px;
+                    &:after {
+                        content: '';
+                        width: 30px;
+                        height: 30px;
+                        border: 3px solid white;
+                        position: absolute;
+                        top: 1px;
+                        left: 1px;
+                        outline: none !important;
+                        border-radius: 50%;
+                    }
+                }
+            }
+
+            &.disabled {
+                box-shadow: unset;
+                cursor: default;
+                pointer-events: none;
+
+                &:after {
+                    //  ToDo: improve .lib-background-gradient() to support diagonal gradient
+                    background: url("@{baseDir}images/icon-disable.png") no-repeat center center;
+
+                    bottom: 0;
+                    content: '';
+                    filter: 'progid:DXImageTransform.Microsoft.gradient(startColorstr=#00ffffff, endColorstr=#00ffffff, GradientType=1)';
+                    left: 0;
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                }
+            }
+
+            &-disabled {
+                border: 0;
+                cursor: default;
+                outline: none !important;
+
+                &:after {
+                    .lib-rotate(-30deg);
+                    content: '';
+                    height: 2px;
+                    left: -4px;
+                    position: absolute;
+                    top: 10px;
+                    width: 42px;
+                    z-index: 995;
+                    .lib-css(background, @swatch-option__disabled__background);
+                }
+            }
+
+            &-loading {
+                .lib-css(content, @loading__background-image);
+            }
+
+            &-tooltip {
+                .lib-css(border, @swatch-option-tooltip__border);
+                .lib-css(color, @swatch-option-tooltip__color);
+                display: none;
+                max-height: 100%;
+                min-height: 20px;
+                min-width: 20px;
+                padding: 1px 10px;
+                position: absolute;
+                text-align: center;
+                z-index: 999;
+                .lib-css(background, @swatch-option-tooltip__background);
+
+                &,
+                &-layered {
+                    .corner {
+                        top: 3px;
+                        height: 8px;
+                        left: 40%;
+                        position: absolute;
+
+                        &:before {
+                            border-style: solid;
+                            content: '';
+                            font-size: 1px;
+                            height: 0;
+                            position: relative;
+                            width: 0;
+                        }
+
+                        &:before {
+                            border-color: transparent transparent @color-pink01 transparent;
+                            border-width: 0 7.5px 9px 7.5px;
+                            left: 0;
+                            top: -30px;
+                        }
+                    }
+
+                    .image {
+                        display: none;
+                        height: 130px;
+                        margin: 0 auto;
+                        width: 130px;
+                    }
+                }
+
+                &-layered {
+                    .lib-css(border, @swatch-option-tooltip-layered__border);
+                    .lib-css(color, @swatch-option-tooltip-layered__color);
+                    .lib-css(background, @swatch-option-tooltip-layered__background);
+                    display: none;
+                    left: -47px;
+                    position: absolute;
+                    width: 140px;
+                    z-index: 999;
+                }
+
+                .title {
+                    .lib-css(color, @swatch-option-tooltip-title__color);
+                    display: block;
+                    max-height: 200px;
+                    min-height: 20px;
+                    overflow: hidden;
+                    text-align: center;
+                    font-size: 12px;
+                    font-family: @font-avenir-heavy;
+                    
+                }
+            }
+
+            &-link-layered {
+                margin: 0 !important;
+                padding: 0 !important;
+                position: relative;
+
+                &:focus>div {
+                    .lib-css(box-shadow, @swatch-option-link-layered__focus__box-shadow);
+                }
+
+                &:hover>.swatch-option-tooltip-layered {
+                    display: block;
+                }
+            }
+        }
+
+        &-opt {
+            margin: @indent__base 0;
+
+            &-listing {
+                margin-bottom: @indent__s;
+            }
+
+            .swatch-attribute.sheer_peach {
+                .swatch-attribute-label {
+                    display: none;
+                }
+            }
+        }
+
+        &-more {
+            display: inline-block;
+            margin: 2px 3px 2px 6px;
+            padding: 2px;
+            position: static;
+            z-index: 1;
+            text-decoration: none;
+            padding-bottom: 5px;
+            padding-top: 10px;
+        }
+
+        &-visual-tooltip-layered {
+            height: 160px;
+            top: -170px;
+        }
+
+        &-textual-tooltip-layered {
+            height: 30px;
+            top: -40px;
+        }
+
+        &-input {
+            left: -1000px;
+            position: absolute;
+            visibility: hidden;
+        }
+
+        &-contain {
+            height: 42px;
+        }
+    }
+
+    .clearfix:after {
+        clear: both;
+        content: '';
+        display: block;
+        height: 0;
+        visibility: hidden;
+    }
+}

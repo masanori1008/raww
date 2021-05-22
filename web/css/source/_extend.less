@@ -1,0 +1,40 @@
+@import 'slick/slick-theme.less';
+@import 'slick/slick.less';
+
+& when (@media-common =true) {
+    * {
+        .lib-css(margin, 0);
+        .lib-css(padding, 0);
+    }
+
+    body {
+        .lib-css(font-family, @font-avenir-roman);
+        .lib-css(font-size, 15px);
+        .lib-css(line-height, 24px);
+        .lib-css(color, @color-standard);
+
+        ul,
+        li {
+            list-style-type: none;
+        }
+
+    }
+
+    body * {
+        .lib-css(box-sizing, border-box);
+    }
+
+    a {
+        .lib-css(cursor, pointer);
+        .lib-css(font-family, @font-avenir-roman);
+    }
+
+    //--------icon breadcrums------------
+    .page-wrapper .breadcrumbs .item:not(:last-child):after {
+        font-size: 17px;
+        margin-left: 3px;
+        margin-right: 5px;
+        color: @color-d3;
+        margin-top: 3px;
+    }
+}

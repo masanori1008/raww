@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="1column"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <move element="attribute.new" destination="product.info.main" before="page.main.title" />
+        <move element="product.info.details" destination="product.info.media" after="catalog_product_gallery" />
+        <move element="catalog.product.related" destination="page.wrapper" before="footer-container" />
+
+        <referenceBlock name="product.info.stock.sku" remove="true"/>
+        <referenceBlock name="catalog.compare.sidebar" remove="true"/>
+        <referenceBlock name="wishlist_sidebar" remove="true" />
+        <referenceBlock name="product.info.addto" remove="true" />
+        <referenceBlock name="product.info.overview" remove="true" />
+        <referenceBlock name="product.attributes" remove="true" />
+
+        <referenceContainer name="product.info.main">
+            <container name="attribute.new" htmlTag="div" htmlClass="attr-new" before="-">
+                <block class="Magento\Catalog\Block\Product\View\Description" name="new.attribute" template="Magento_Catalog::product/view/attr_new.phtml" before="-" />
+            </container>
+            <container name="attribute.afterpay" htmlTag="div" htmlClass="attr-afterpay" after="product.info.price">
+                <block class="Magento\Catalog\Block\Product\View\Description" name="afterpay.attribute" template="Magento_Catalog::product/view/attr_afterpay.phtml" after="-" />
+            </container>
+            <container name="attribute.smells" htmlTag="div" htmlClass="attr-smells" after="product.info.addtocart">
+                <block class="Magento\Catalog\Block\Product\View\Description" name="smells.attribute" template="Magento_Catalog::product/view/attr_smells.phtml" after="-" />
+            </container>
+        </referenceContainer>
+        <!-- Tabs product infor details -->
+        <referenceBlock name="product.info.details">
+            <block class="Magento\Catalog\Block\Product\View" name="raww-howto-tab" template="Magento_Catalog::product/view/tab_howto.phtml" group="detailed_info">
+                <arguments>
+                    <argument translate="true" name="title" xsi:type="string">HOW TO</argument>
+                    <argument name="sort_order" xsi:type="string">10</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Catalog\Block\Product\View" name="raww-ingredients-tab" template="Magento_Catalog::product/view/tab_ingredients.phtml" group="detailed_info">
+                <arguments>
+                    <argument translate="true" name="title" xsi:type="string">INGREDIENTS</argument>
+                    <argument name="sort_order" xsi:type="string">11</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Catalog\Block\Product\View" name="raww-faq-tab" template="Magento_Catalog::product/view/tab_faq.phtml" group="detailed_info">
+                <arguments>
+                    <argument translate="true" name="title" xsi:type="string">FAQ</argument>
+                    <argument name="sort_order" xsi:type="string">12</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

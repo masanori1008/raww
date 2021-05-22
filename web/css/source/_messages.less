@@ -1,0 +1,21 @@
+//
+//  Alerts
+//  _____________________________________________
+
+& when (@media-common = true) {
+	.message-success {
+        .lib-message(success);
+        .lib-css(background, @color-white);
+        .lib-css(border, solid 1px @color-green-message );
+        .lib-css(text-align, center);
+        .lib-css(color, @color-green-message);
+    }
+
+     .message-error {
+        .lib-message(error);
+        .lib-css(background, @color-white);
+        .lib-css(border, solid 1px @color-red-validate );
+        .lib-css(text-align, center);
+	    .lib-css(color, @color-red-validate);
+    }
+}

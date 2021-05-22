@@ -1,0 +1,18 @@
+    <?php
+    $product = $block->getProduct();
+    $p = $product->getData('raww_new');
+
+    if ($p) { ?>
+        <div class="raww-new">
+            <span>
+                <?php echo $p ?>
+            </span>
+        </div>
+    <?php } else { ?>
+        <div class="raww-new">
+            <span>
+                <?php echo "" ?>
+            </span>
+        </div>
+    <?php }
+    ?>
